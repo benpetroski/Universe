@@ -2,6 +2,8 @@
 Created on Jun 16, 2014
 
 @author: Ben Petroski
+
+Produces: Box with set size, position, and title.
 '''
 import sys
 from PyQt4 import QtCore, QtGui

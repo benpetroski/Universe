@@ -1,5 +1,7 @@
 '''
 @author: benpetroski
+
+Produces: Box that has confirmation pop-up message upon exit.
 '''
 import sys
 from PyQt4 import QtGui, QtCore
