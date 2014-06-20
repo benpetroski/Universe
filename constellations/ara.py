@@ -2,6 +2,7 @@
 @author: benpetroski
 
 Produces: Box that is centered on screen.
+http://zetcode.com/gui/pyqt4/firstprograms/
 '''
 import sys
 from PyQt4 import QtGui, QtCore

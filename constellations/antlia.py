@@ -4,6 +4,7 @@ Created on Jun 18, 2014
 @author: Ben Petroski
 
 Produces: Box that sets the icon of the window (not working, need local path(?)).
+http://zetcode.com/gui/pyqt4/firstprograms/
 '''
 import sys
 from PyQt4 import QtGui

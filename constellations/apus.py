@@ -4,6 +4,7 @@ Created on Jun 18, 2014
 @author: Ben Petroski
 
 Produces: Box that shows tooltip upon mouse hover.
+http://zetcode.com/gui/pyqt4/firstprograms/
 '''
 import sys
 from PyQt4 import QtGui
