@@ -1,7 +1,7 @@
 '''
 @author: benpetroski
 
-Produces: Box containing toolbar.
+Produces: Box containing menubar, toolbar, and text editor.
 http://zetcode.com/gui/pyqt4/menusandtoolbars/
 '''
 import sys
@@ -13,21 +13,25 @@ class Example(QtGui.QMainWindow):
         self.initUI()
         
     def initUI(self):
+        textEdit = QtGui.QTextEdit()
+        self.setCentralWidget(textEdit)
+        
         exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), 'Exit', self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit Application')
-        exitAction.triggered.connect(QtGui.qApp.quit)
+        exitAction.triggered.connect(self.close)
         
         self.statusBar()
-        self.toolbar = self.addToolBar('Exit')
-        self.toolbar.addAction(exitAction)
         
         menubar = self.menuBar()
         fileMenu = menubar.addMenu('&File')
         fileMenu.addAction(exitAction)
         
-        self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('Toolbar')
+        toolbar = self.addToolBar('Exit')
+        toolbar.addAction(exitAction)
+        
+        self.setGeometry(300,300,350,250)
+        self.setWindowTitle('Main Window')
         self.show()
         
 def main():
