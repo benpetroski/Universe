@@ -24,7 +24,6 @@ class Example(QtGui.QMainWindow):
     def mousePressEvent(self,e):
         self.closeApp.emit()
     def keyPressEvent(self,e):
-        print chr(e.key())
         if e.key() != QtCore.Qt.Key_Escape:
             self.statusBar().showMessage(chr(e.key()))
         
