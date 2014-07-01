@@ -7,8 +7,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 class sendMessage(object):    
-    def __init__(self, pw, msgto, msgfrom, msgmessage):
-        self.you = msgto
+    def __init__(self, pw, msgcarrier, msgto, msgfrom, msgmessage):
+        self.you = str(msgto+msgcarrier)
         self.me = msgfrom       
         self.html = msgmessage
         self.msg = MIMEMultipart('alternative')
@@ -20,16 +20,16 @@ class sendMessage(object):
         self.s.login(self.me.replace('@gmail.com',''),pw)
         
     def send(self):
-        self.msg.attach(MIMEText(self.html, 'plain'))
+        self.msg.attach(MIMEText(str(self.html), 'plain'))        
         self.s.sendmail(self.me, self.you, self.msg.as_string())
         
     def close(self):
         self.s.quit()
 
 class createGUI(QtGui.QWidget):
-    msgcarrier='Verizon'
-    msgto='[fillinnumber]@vtext.com'
-    msgfrom='[fillinemail]@gmail.com'
+    msgcarrier='@vtext.com'
+    msgto='phonenumber'
+    msgfrom='@gmail.com'
     msgmessage='Hello World!!'
     
     def __init__(self):
@@ -81,7 +81,7 @@ class createGUI(QtGui.QWidget):
         vbox.addLayout(hboxMessage)
         vbox.addSpacing(5)      
         
-        self.pw = '[fillinemailpass]' 
+        self.pw = 'emailpass' 
         sendButton = QtGui.QPushButton('Send', self)
         sendButton.clicked.connect(self.send)
         cancelButton = QtGui.QPushButton('Cancel', self)
@@ -112,7 +112,7 @@ class createGUI(QtGui.QWidget):
             print 'Error: carrier'
         
     def setTo(self, text):
-        self.msgto=text+self.msgcarrier
+        self.msgto=text
         print self.msgto
         
     def setFrom(self, text):
@@ -124,7 +124,7 @@ class createGUI(QtGui.QWidget):
         print self.msgmessage
         
     def send(self):
-        sm = sendMessage(self.pw, self.msgto, self.msgfrom, self.msgmessage)
+        sm = sendMessage(self.pw, self.msgcarrier, self.msgto, self.msgfrom, self.msgmessage)
         sm.send()
         
     def cancel(self):
