@@ -28,8 +28,8 @@ class sendMessage(object):
 
 class createGUI(QtGui.QWidget):
     msgcarrier='@vtext.com'
-    msgto='phonenumber'
-    msgfrom='@gmail.com'
+    msgto='num'
+    msgfrom='email@gmail.com'
     msgmessage='Hello World!!'
     
     def __init__(self):
@@ -81,7 +81,7 @@ class createGUI(QtGui.QWidget):
         vbox.addLayout(hboxMessage)
         vbox.addSpacing(5)      
         
-        self.pw = 'emailpass' 
+        self.pw = 'pass' 
         sendButton = QtGui.QPushButton('Send', self)
         sendButton.clicked.connect(self.send)
         cancelButton = QtGui.QPushButton('Cancel', self)
@@ -92,7 +92,7 @@ class createGUI(QtGui.QWidget):
 
         self.setLayout(vbox)
         self.setWindowTitle('Send message')
-        self.setGeometry(1000,500,300,200)
+        self.setGeometry(1000,500,230,200)
         self.show()
         
     def setCarrier(self, text):
@@ -128,7 +128,7 @@ class createGUI(QtGui.QWidget):
         sm.send()
         
     def cancel(self):
-        sys.exit(app.exec_())
+        sys.exit()
         
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
