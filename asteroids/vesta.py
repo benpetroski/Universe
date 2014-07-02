@@ -28,8 +28,8 @@ class sendMessage(object):
 
 class createGUI(QtGui.QWidget):
     msgcarrier='@vtext.com'
-    msgto='num'
-    msgfrom='email@gmail.com'
+    msgto=''
+    msgfrom='@gmail.com'
     msgmessage='Hello World!!'
     
     def __init__(self):
@@ -81,7 +81,7 @@ class createGUI(QtGui.QWidget):
         vbox.addLayout(hboxMessage)
         vbox.addSpacing(5)      
         
-        self.pw = 'pass' 
+        self.pw = '' 
         sendButton = QtGui.QPushButton('Send', self)
         sendButton.clicked.connect(self.send)
         cancelButton = QtGui.QPushButton('Cancel', self)
@@ -98,30 +98,23 @@ class createGUI(QtGui.QWidget):
     def setCarrier(self, text):
         if text=='Verizon':
             self.msgcarrier='@vtext.com'
-            print self.msgcarrier
         elif text=='AT&T':
             self.msgcarrier='@txt.att.net'
-            print self.msgcarrier
         elif text=='T-Mobile':
             self.msgcarrier='@tmomail.net'
-            print self.msgcarrier
         elif text=='Sprint':
             self.msgcarrier='@pm.sprint.com'
-            print self.msgcarrier
         else:
             print 'Error: carrier'
         
     def setTo(self, text):
         self.msgto=text
-        print self.msgto
         
     def setFrom(self, text):
         self.msgfrom=text+'@gmail.com'
-        print self.msgfrom
         
     def setMessage(self):
         self.msgmessage=self.editMessage.toPlainText()
-        print self.msgmessage
         
     def send(self):
         sm = sendMessage(self.pw, self.msgcarrier, self.msgto, self.msgfrom, self.msgmessage)
