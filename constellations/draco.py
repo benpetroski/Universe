@@ -24,7 +24,7 @@ class Example(QtGui.QWidget):
         
     def paintEvent(self, e):
         qp = QtGui.QPainter()
-        qp.begin(self)
+        qp.begin(self) 
         self.drawText(e, qp)
         qp.end()
         
