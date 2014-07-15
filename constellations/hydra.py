@@ -3,7 +3,8 @@
 '''
 # Converts hex characters to ascii for first Twitter tweet.
 
-if __name__ == "__main__": 
-    handle='62656e'
-    print 'My real name is:'
-    print handle.decode('hex')
+def me(_): print '62656e'.decode('hex') 
+if __name__ == '__main__': me('ben') 
+#Comment: I like startups and tech
+
+print '62656e'.decode('hex') == 'ben'
