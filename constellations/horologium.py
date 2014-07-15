@@ -60,13 +60,14 @@ incorrect4 = [['a','b','c'],
 incorrect5 = [ [1, 1.5],
                [1.5, 1]]
                
-def check_sudoku():
-    print None
-
-
-
-
-    
+def check_sudoku(grid):
+    square = len(grid[1])
+    transpose = [list(i) for i in zip(*grid)]
+    for i in xrange(square):
+        for j in xrange(square):
+            if j+1 not in grid[i] or j+1 not in transpose[i]:
+                return False
+    return True   
     
 print check_sudoku(incorrect)
 #>>> False
